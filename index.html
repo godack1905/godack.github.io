@@ -54,6 +54,8 @@
   
     
     
+      
+    
     
     
     
@@ -108,7 +110,25 @@
     </div>
     
       
+        <form class="md-header__option" data-md-component="palette">
+  
     
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="pink"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="pink"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
@@ -898,6 +918,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#select-your-language-selecciona-tu-idioma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Select your language / Selecciona tu idioma
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -918,10 +955,9 @@
 <h1 id="welcome-bienvenido">Welcome / Bienvenido</h1>
 <p>Hi! I'm Isaías, a <strong>Computer Engineering student</strong>, <strong>Junior Pentester</strong>, and cybersecurity enthusiast.<br />
 Welcome to my personal website where you can find my writeups, notes, and projects.</p>
-<div align="center">
-    <h1>Select your language / Selecciona tu idioma</h1>
-    <a href="en/index.md">English</a> | <a href="es/index.md">Español</a>
-</div>
+<hr />
+<h2 id="select-your-language-selecciona-tu-idioma">Select your language / Selecciona tu idioma</h2>
+<p><a href="en/">English</a> | <a href="es/">Español</a></p>
 
 
 
