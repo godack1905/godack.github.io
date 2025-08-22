@@ -1,0 +1,19 @@
+site_name: Isaías Writeups
+
+theme:
+  name: material
+
+plugins:
+  - i18n:
+      default_language: en
+      languages:
+        en: English
+        es: Español
+
+nav:
+  - Home: index.md
+  - Writeups:
+    - First Hacking: FirstHacking.md
+    - Injection: Injection.md
+    - Trust: Trust.md
+    - Obsession: Obsession.md
