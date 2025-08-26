@@ -1,19 +1,49 @@
-site_name: Isaías Writeups
-
+site_name: InfoSec & Dev by Isaías
 theme:
   name: material
-
-plugins:
-  - i18n:
-      default_language: en
-      languages:
-        en: English
-        es: Español
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo claro
+  features:
+    - navigation.tabs
+    - content.code.copy
+    - search.highlight
+    - navigation.instant
+repo_url: https://github.com/godack1905
+repo_name: GitHub
+extra:
+    social:
+      - icon: fontawesome/brands/linkedin
+        link: https://www.linkedin.com/in/isa%C3%ADas-vela-sotil-b436431a4/
 
 nav:
-  - Home: index.md
-  - Writeups:
-    - First Hacking: FirstHacking.md
-    - Injection: Injection.md
-    - Trust: Trust.md
-    - Obsession: Obsession.md
+  - English:
+      - Home: en/index.md
+      - Writeups:
+          - First Hacking: en/writeups/FirstHacking.md
+          - Injection: en/writeups/Injection.md
+          - Trust: en/writeups/Trust.md
+          - Obsession: en/writeups/Obsession.md
+      - Notes:
+          - Most common vulnerabilities: en/notes/VulnerabilityWeb.md
+          - Pentesting tools: en/notes/Tools.md
+  - Español:
+      - Inicio: es/index.md
+      - Writeups:
+          - First Hacking: es/writeups/FirstHacking.md
+          - Injection: es/writeups/Injection.md
+          - Trust: es/writeups/Trust.md
+          - Obsession: es/writeups/Obsession.md
+      - Apuntes:
+          - Vulnerabilidades web mas comunes: es/notes/VulnerabilityWeb.md
+          - Herramientas de pentesting: es/notes/Tools.md
