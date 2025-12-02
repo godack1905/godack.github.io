@@ -154,7 +154,7 @@ Hola Mario,
 
 Esta web no se puede hackear.
 ```
-![alt text](../../images/Trust-secret.png)
+![Trust secret](../../images/Trust-secret.png)
 Así que suponemos que un posible usuario puede ser Mario.
 Como no tenemos mas información, lo único que podemos hacer (o al menos lo único que se me ocurre) es hacer un ataque de fuerza bruta sobre el puerto SSH (puerto 22) mediante *hydra*, para intentar obtener las credenciales de este posible usuario.
 

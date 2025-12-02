@@ -1,6 +1,6 @@
 # Write Up Obsession
 
-**Difficulty:** Super easy<br>  
+**Difficulty:** Super easy  
 **Link to dockerlabs:** https://dockerlabs.es/
 
 ## Setting up the environment

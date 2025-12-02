@@ -29,11 +29,6 @@ In this section, you'll find my notes on topics such as *cybersecurity vulnerabi
 ---
 
 ## Projects
-Here you'll find the projects I’ve completed and the ones I’m currently working on (most of them are available on GitHub).
-
----
-
-## Links
-
-- [My GitHub](https://github.com/godack1905)
-- [My Cybersecurity Repository](https://github.com/godack1905/ciberseguridad-portfolio)
+In this section, you will find the projects I have completed and those I am currently working on (most of which can be viewed on GitHub).
+- [Cybersecurity repository](https://github.com/godack1905/ciberseguridad-portfolio)
+- [Weather panel with CI/CD](https://github.com/godack1905/weather-dashboard) → [View on Github Pages](https://godack1905.github.io/weather-dashboard/)
