@@ -1236,7 +1236,7 @@ Finished
 
 Esta web no se puede hackear.
 </code></pre>
-<p><img alt="alt text" src="../../../images/Trust-secret.png" />
+<p><img alt="Trust secret" src="../../../images/Trust-secret.png" />
 Así que suponemos que un posible usuario puede ser Mario.
 Como no tenemos mas información, lo único que podemos hacer (o al menos lo único que se me ocurre) es hacer un ataque de fuerza bruta sobre el puerto SSH (puerto 22) mediante <em>hydra</em>, para intentar obtener las credenciales de este posible usuario.</p>
 <pre><code>❯ hydra -l mario -P /usr/share/wordlists/rockyou.txt ssh://trust

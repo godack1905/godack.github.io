@@ -30,6 +30,7 @@ En este apartado encontrarás mis apuntes sobre temas como *vulnerabilidads de c
 
 ## Proyectos - Reposiorios
 En este apartado encontrarás los proyectos que he realizado y en los que estoy trabajando (la mayoría se pueden ver en github).
+
 - [Repositorio de cibeseguridad](https://github.com/godack1905/ciberseguridad-portfolio)
 - [Panel meteorológico con CI/CD](https://github.com/godack1905/weather-dashboard) → [Ver en Github Pages](https://godack1905.github.io/weather-dashboard/)
 
