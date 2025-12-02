@@ -1,9 +1,14 @@
 name: Deploy MkDocs
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
@@ -21,8 +26,15 @@ jobs:
           pip install mkdocs-material
           
       - name: Build site
-        run: mkdocs build --site-dir site
-        
+        run: mkdocs build
+      
+      - name: Verify site was built
+        run: |
+          echo "Checking if site directory exists:"
+          ls -la
+          echo "Checking site directory contents:"
+          ls -la site/ || echo "site directory not found"
+      
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
