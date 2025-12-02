@@ -7,7 +7,7 @@
 Bilingual cybersecurity and development documentation site built with MkDocs Material. Available in English and Español.
 
 ## 🌐 Live Site
-**https://godack1905.github.io/**
+**https://godack1905.github.io/godack.github.io**
 
 ## 📁 Project Structure
 ```
