@@ -1,29 +1,50 @@
-name: Deploy MkDocs to Main
+name: Deploy MkDocs
 on:
   push:
-    branches: [ main ]
+    branches: ["main"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
       
-      - uses: actions/setup-python@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
           
-      - run: pip install mkdocs-material
-      
-      - run: mkdocs build
-      
-      # Deploy to main branch directly
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Install dependencies
+        run: pip install mkdocs-material
+          
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Build with MkDocs
+        run: mkdocs build --site-dir ./_site
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-          publish_branch: main  # This is key for user sites
-          force_orphan: true    # Clean history
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+          path: ./_site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
